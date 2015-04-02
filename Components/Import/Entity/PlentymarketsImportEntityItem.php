@@ -935,7 +935,7 @@ class PlentymarketsImportEntityItem
 				$SHOPWARE_itemID = $Article->getId();
 
 				// Mapping speichern
-				PlentymarketsMappingControllecr::addItem($Article->getId(), $this->ItemBase->ItemID);
+				PlentymarketsMappingController::addItem($Article->getId(), $this->ItemBase->ItemID);
 
 				$VariantController = new PlentymarketsImportItemVariantController($this->ItemBase);
 
