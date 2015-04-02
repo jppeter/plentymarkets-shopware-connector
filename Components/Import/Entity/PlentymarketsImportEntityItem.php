@@ -125,7 +125,7 @@ class PlentymarketsImportEntityItem
 	protected function setData()
 	{
 		$this->data = array(
-			'name' => $this->ItemBase->Texts->Name,
+			'name' => $this->getItemName($this->ItemBase->Texts),
 			'description' => $this->ItemBase->Texts->ShortDescription,
 			'descriptionLong' => $this->ItemBase->Texts->LongDescription,
 			'keywords' => $this->ItemBase->Texts->Keywords,
@@ -935,7 +935,7 @@ class PlentymarketsImportEntityItem
 				$SHOPWARE_itemID = $Article->getId();
 
 				// Mapping speichern
-				PlentymarketsMappingController::addItem($Article->getId(), $this->ItemBase->ItemID);
+				PlentymarketsMappingControllecr::addItem($Article->getId(), $this->ItemBase->ItemID);
 
 				$VariantController = new PlentymarketsImportItemVariantController($this->ItemBase);
 
@@ -1027,6 +1027,26 @@ class PlentymarketsImportEntityItem
 		}
 
 		return $taxID;
+	}
+	
+	/**
+	 * Returns the item name
+	 * 
+	 * @return string
+	 */
+	protected function getItemName($ItemTexts)
+	{
+		$useName = PlentymarketsConfig::getInstance()->getItemNameImportActionID();
+		
+		if($useName != 'Name')
+		{
+			if(!empty($ItemTexts->$useName))
+			{
+				return $ItemTexts->$useName;
+			}
+		}
+		
+		return $ItemTexts->Name;
 	}
 
 	/**
