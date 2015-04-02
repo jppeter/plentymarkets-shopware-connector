@@ -126,8 +126,8 @@ class PlentymarketsImportEntityItem
 	{
 		$this->data = array(
 			'name' => $this->getItemName($this->ItemBase->Texts),
-			'description' => $this->ItemBase->Texts->ShortDescription,
-			'descriptionLong' => $this->ItemBase->Texts->LongDescription,
+			'description' => (PlentymarketsConfig::getInstance()->getItemShortDescriptionImportActionID(IMPORT_ITEM_SHORTDESC) == 1) ? $this->ItemBase->Texts->ShortDescription : '',
+			'descriptionLong' => (PlentymarketsConfig::getInstance()->getItemLongDescriptionImportActionID(IMPORT_ITEM_LONGDESC) == 1) ? $this->ItemBase->Texts->LongDescription : '',
 			'keywords' => $this->ItemBase->Texts->Keywords,
 			'highlight' => ($this->ItemBase->WebShopSpecial == 3),
 			'lastStock' => ($this->ItemBase->Stock->Limitation == 1),
@@ -1036,7 +1036,7 @@ class PlentymarketsImportEntityItem
 	 */
 	protected function getItemName($ItemTexts)
 	{
-		$useName = PlentymarketsConfig::getInstance()->getItemNameImportActionID();
+		$useName = PlentymarketsConfig::getInstance()->getItemNameImportActionID(IMPORT_ITEM_NAME);
 		
 		if($useName != 'Name')
 		{

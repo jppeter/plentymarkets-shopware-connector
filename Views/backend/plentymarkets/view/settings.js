@@ -194,14 +194,14 @@ Ext.define('Shopware.apps.Plentymarkets.view.Settings', {
                         supportText: 'Aktivieren, wenn die Artikelnummern von plentymarkets übernommen werden sollen.'
                     },
                     {
-                        fieldLabel: '{s name=plentymarkets/view/settings/textfield/ItemCleanupActionID}Produktname übernehmen{/s}',
+                        fieldLabel: '{s name=plentymarkets/view/settings/textfield/ItemNameImportActionID}Produktname übernehmen{/s}',
                         name: 'ItemNameImportActionID',
                         store: new Ext.data.ArrayStore({
                             fields: ['id', 'name'],
                             data: [
-                                [1, 'Name'],
-                                [2, 'Name 2'],
-                                [3, 'Name 3']
+                                ['Name', 'Name'],
+                                ['Name2', 'Name 2'],
+                                ['Name3', 'Name 3']
                             ]
                         }),
                         supportText: 'Produktnamen aus plentymarkets wählen, welcher abgerufen werden soll.'

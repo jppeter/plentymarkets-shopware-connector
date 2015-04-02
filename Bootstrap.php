@@ -43,6 +43,8 @@ define('IMPORT_ITEM_CATEGORY_NO_SYNC', 0);
 define('IMPORT_ITEM_NUMBER', 1);
 define('IMPORT_ITEM_NUMBER_NO', 0);
 
+define('IMPORT_ITEM_NAME', 'Name');
+
 define('IMPORT_ITEM_SHORTDESC', 1);
 define('IMPORT_ITEM_SHORTDESC_NO', 0);
 
